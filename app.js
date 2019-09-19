@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 const dishRouter = require('./routes/dishRouter');
 const promoRouter = require('./routes/promoRouter');
 const leaderRouter = require('./routes/leaderRouter');
+<<<<<<< HEAD
 
 const mongoose = require('mongoose');
 
@@ -22,6 +23,8 @@ connect.then((db) => {
 }, (err) => {
   console.log(err);
 });
+=======
+>>>>>>> 2723c92... Express Generator REST API
 
 var app = express();
 
