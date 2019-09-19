@@ -1,17 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-<<<<<<< HEAD
 const mongoose = require('mongoose');
 
 const Dishes = require('../models/dishes');
-=======
->>>>>>> 2723c92... Express Generator REST API
 
 const dishRouter = express.Router();
 dishRouter.use(bodyParser.json());
 
 dishRouter.route('/')
-<<<<<<< HEAD
 .get((req,res,next) =>{
     Dishes.find({})
         .then((dishes) => {
@@ -33,20 +29,6 @@ dishRouter.route('/')
     }, (err) => next(err))
 
     .catch((err) => next(err));
-=======
-.all((req,res,next) => {
-res.statusCode = 200;
-res.setHeader('Content-Type', 'text/plain');
-next();
-})
-
-.get((req,res,next) =>{
-    res.end("Will send all the dishes to you!");
-})
-
-.post((req,res,next) => {
-    res.end('Will add the dish: ' + req.body.name + ' with details: ' + req.body.description);
->>>>>>> 2723c92... Express Generator REST API
 })
 
 .put((req,res,next) => {
@@ -55,7 +37,6 @@ next();
 })
 
 .delete((req,res,next) =>{
-<<<<<<< HEAD
     Dishes.remove({})
     .then((resp) => {
         res.StatusCode = 200;
@@ -64,14 +45,10 @@ next();
     }, (err) => next(err))
 
     .catch((err) => next(err));
-=======
-    res.end("Deleting all the dishes!");
->>>>>>> 2723c92... Express Generator REST API
 });
 
 dishRouter.route('/:dishId')
 .get((req,res,next) =>{ 
-<<<<<<< HEAD
     Dishes.findById(req.params.dishId)
     .then((dish) => {
         res.StatusCode = 200;
@@ -80,9 +57,6 @@ dishRouter.route('/:dishId')
     }, (err) => next(err))
 
     .catch((err) => next(err));
-=======
-    res.end('Will send '+ req.params.dishId + ' dish details to you!');
->>>>>>> 2723c92... Express Generator REST API
 })
 
 .post((req,res,next) => {
@@ -91,7 +65,6 @@ dishRouter.route('/:dishId')
 })
 
 .put((req,res,next) => {
-<<<<<<< HEAD
     Dishes.findByIdAndUpdate(req.params.dishId, {
         $set: req.body
     }, { new: true })
@@ -271,14 +244,6 @@ dishRouter.route('/:dishId/comments/:commentId')
         }
     }, (err) => next(err))
     .catch((err) => next(err));
-=======
-    res.write('Updating the dish: ' + req.params.dishId + '\n');
-    res.end('Will update the dish: ' + req.body.name + ' with details: ' + req.body.description);
-})
-
-.delete((req,res,next) =>{
-    res.end("Deleting the dish: " + req.params.dishId);
->>>>>>> 2723c92... Express Generator REST API
 });
 
 module.exports = dishRouter;
